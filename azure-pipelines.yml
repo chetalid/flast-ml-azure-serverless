@@ -2,9 +2,7 @@ trigger:
 - main
 
 # TODO: Replace the agent pool name
-#pool: myAgentPool
-pool:
-  vmImage: ubuntu-latest
+pool: myAgentPool
 
 variables:
   # TODO: Replace the service connection name
@@ -24,8 +22,7 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    pool:
-      vmImage: ubuntu-latest
+    pool: myAgentPool
     steps:    
     - script: |
         python3.7 -m pip install --upgrade pip
@@ -57,8 +54,7 @@ stages:
   condition: succeeded()
   jobs:
   - deployment: DeploymentJob
-    pool:
-      vmImage: ubuntu-latest
+    pool: myAgentPool
     environment: $(environmentName)
     strategy:
       runOnce:
