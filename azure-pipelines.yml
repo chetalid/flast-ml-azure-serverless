@@ -1,4 +1,16 @@
 trigger:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'myServConn'
+    appType: 'webAppLinux'
+    WebAppName: 'MyAzureTestWebapp123'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'Azuredevops'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'PYTHON|3.7'
+    StartupCommand: 'python app.py'
 - main
 
 # TODO: Replace the agent pool name
