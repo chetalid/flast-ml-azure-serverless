@@ -1,4 +1,5 @@
 trigger:
+- main
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
@@ -11,7 +12,7 @@ trigger:
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'PYTHON|3.7'
     StartupCommand: 'python app.py'
-- main
+
 
 # TODO: Replace the agent pool name
 pool: myAgentPool
