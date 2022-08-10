@@ -7,6 +7,18 @@ pool: myAgentPool
 variables:
   azureServiceConnectionId: 'Flask-ML-ServiceConn'
   webAppName: 'MyAzureTestWebapp123'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'myServConn'
+    appType: 'webAppLinux'
+    WebAppName: 'MyAzureTestWebapp123'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'Azuredevops'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'PYTHON|3.7'
+    StartupCommand: 'python app.py'
   environmentName: 'flask-ml-service'
   projectRoot: $(System.DefaultWorkingDirectory)
 
