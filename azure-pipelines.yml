@@ -1,38 +1,20 @@
 trigger:
-- main
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'myServConn'
-    appType: 'webAppLinux'
-    WebAppName: 'MyAzureTestWebapp123'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'Azuredevops'
-    SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'PYTHON|3.7'
-    StartupCommand: 'python app.py'
-
+- master
 
 # TODO: Replace the agent pool name
 pool: myAgentPool
 
 variables:
-  azureServiceConnectionId: 'Flask-ML-ServiceConn'
+  # TODO: Replace the service connection name
+  azureServiceConnectionId: 'myServConn'
+  
+  # TODO: Replace 'mywebapp193576' with the existing Web App name
   webAppName: 'MyAzureTestWebapp123'
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'myServConn'
-    appType: 'webAppLinux'
-    WebAppName: 'MyAzureTestWebapp123'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'Azuredevops'
-    SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'PYTHON|3.7'
-    StartupCommand: 'python app.py'
+
+  # Environment name
   environmentName: 'flask-ml-service'
+
+  # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
 stages:
