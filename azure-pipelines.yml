@@ -2,7 +2,9 @@ trigger:
 - master
 
 # TODO: Replace the agent pool name
-pool: myAgentPool
+#pool: myAgentPool
+pool:
+  vmImage: ubuntu-latest
 
 variables:
   # TODO: Replace the service connection name
