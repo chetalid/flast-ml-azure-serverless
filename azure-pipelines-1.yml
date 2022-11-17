@@ -6,7 +6,7 @@ pool: myAgentPool
 
 variables:
   # TODO: Replace the service connection name
-  azureServiceConnectionId: 'myServiceConnection'
+  azureServiceConnectionId: 'testservconn'
   
   # TODO: Replace 'mywebapp193576' with the existing Web App name
   webAppName: 'MyFirstAzureWebapp111'
