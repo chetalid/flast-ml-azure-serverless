@@ -9,7 +9,7 @@ variables:
   azureServiceConnectionId: 'testservconn'
   
   # TODO: Replace 'mywebapp193576' with the existing Web App name
-  webAppName: 'MyFirstAzureWebapp111'
+  webAppName: 'flask-webapp-azure'
 
   # Environment name
   environmentName: 'flask-ml-service'
